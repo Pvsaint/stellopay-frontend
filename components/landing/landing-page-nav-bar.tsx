@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import NetworkSwitcher from "@/components/common/network-switcher";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -41,6 +42,9 @@ export default function LandingPageNavBar() {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden md:flex items-center gap-4">
+          {/* Network Switcher */}
+          <NetworkSwitcher variant="landing" />
+          
           <Link
             href="/auth/login"
             className="px-6 py-4 rounded-full border border-[#598EFF] text-[#EEF4FF] bg-transparent font-medium transition-colors duration-200 hover:bg-[#598EFF] hover:text-white"
@@ -85,6 +89,10 @@ export default function LandingPageNavBar() {
               </Link>
             ))}
             <div className="flex flex-col gap-3 w-full px-6">
+              {/* Network Switcher for Mobile */}
+              <div className="flex justify-center mb-2">
+                <NetworkSwitcher variant="landing" />
+              </div>
               <Link
                 href="/auth/login"
                 className="px-6 py-2 rounded-full border border-[#598EFF] text-[#EEF4FF] bg-transparent font-medium transition-colors duration-200 hover:bg-[#598EFF] hover:text-white text-center"
