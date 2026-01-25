@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { Copy } from "lucide-react";
 import { copyToClipboardWithTimeout } from "@/utils/clipboardUtils";
+import { AccountSummaryCardSkeleton } from "@/components/ui/card-skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 const summary = [
     {
         accountInfo: "Your Account Balance", 
@@ -29,9 +31,29 @@ const summary = [
     }
 ]
 
-export default function AccountSummary() {
+interface AccountSummaryProps {
+  isLoading?: boolean;
+}
+
+export default function AccountSummary({ isLoading = false }: AccountSummaryProps) {
   const [copied, setCopied] = useState(false);
     
+  if (isLoading) {
+    return (
+      <div className="max-w-full p-4 rounded-xl h-[12.75rem] my-6 border-[1px] border-[#2D2D2D] bg-[#0D0D0D80]">
+        <div className="w-full h-8 gap-3 mb-4 flex items-center">
+          <Skeleton className="w-8 h-8 rounded-lg" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+        <div className="max-w-full h-[7.5rem] gap-4 justify-between flex overflow-hidden">
+          <AccountSummaryCardSkeleton />
+          <AccountSummaryCardSkeleton />
+          <AccountSummaryCardSkeleton />
+        </div>
+      </div>
+    );
+  }
+  
   return (
     <div className="max-w-full p-4 rounded-xl h-[12.75rem] my-6 border-[1px] border-[#2D2D2D] bg-[#0D0D0D80]">
         <div className="w-full h-8 gap-3 mb-4 flex items-center">

@@ -11,8 +11,13 @@ import {
 import { TransactionProps, TransactionsTableProps } from "@/types/transaction";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export function TransactionsTable({ transactions }: TransactionsTableProps) {
+interface TransactionsTablePropsExtended extends TransactionsTableProps {
+  isLoading?: boolean;
+}
+
+export function TransactionsTable({ transactions, isLoading = false }: TransactionsTablePropsExtended) {
   return (
     <>
       {/* Desktop Table */}
@@ -41,7 +46,33 @@ export function TransactionsTable({ transactions }: TransactionsTableProps) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {transactions.map((transaction, index) => (
+            {isLoading ? (
+              Array.from({ length: 6 }).map((_, index) => (
+                <TableRow key={`skeleton-${index}`} className="border border-[#2D2D2D]">
+                  <TableCell className="font-medium border border-[#2D2D2D] py-4 px-6">
+                    <Skeleton className="h-4 w-20 mb-1" />
+                    <Skeleton className="h-3 w-16" />
+                  </TableCell>
+                  <TableCell className="border border-[#2D2D2D] py-4 px-6">
+                    <Skeleton className="h-4 w-32" />
+                  </TableCell>
+                  <TableCell className="border border-[#2D2D2D] py-4 px-6">
+                    <Skeleton className="h-4 w-24" />
+                  </TableCell>
+                  <TableCell className="flex place-items-center space-x-2 py-8 px-6">
+                    <Skeleton className="w-5 h-5 rounded-full" />
+                    <Skeleton className="h-4 w-12" />
+                  </TableCell>
+                  <TableCell className="border border-[#2D2D2D] py-4 px-6">
+                    <Skeleton className="h-4 w-20" />
+                  </TableCell>
+                  <TableCell className="py-4 px-6">
+                    <Skeleton className="h-6 w-16 rounded-full" />
+                  </TableCell>
+                </TableRow>
+              ))
+            ) : (
+              transactions.map((transaction, index) => (
               <TableRow key={index} className="border border-[#2D2D2D]">
                 <TableCell className="font-medium border border-[#2D2D2D] py-4 px-6">
                   <h6 className="text-[#D7E0EF]"> {transaction.type} </h6>
@@ -73,14 +104,42 @@ export function TransactionsTable({ transactions }: TransactionsTableProps) {
                   </Badge>
                 </TableCell>
               </TableRow>
-            ))}
+              ))
+            )}
           </TableBody>
         </Table>
       </div>
 
       {/* Mobile Cards */}
       <div className="md:hidden space-y-4">
-        {transactions.map((transaction, index) => (
+        {isLoading ? (
+          Array.from({ length: 6 }).map((_, index) => (
+            <div key={`skeleton-mobile-${index}`} className="p-4 border rounded-lg border-[#2D2D2D]">
+              <div className="flex justify-between items-start">
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-3 w-24" />
+                </div>
+                <Skeleton className="h-6 w-16 rounded-full" />
+              </div>
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                <div className="space-y-1">
+                  <Skeleton className="h-3 w-12" />
+                  <Skeleton className="h-4 w-20" />
+                </div>
+                <div className="space-y-1">
+                  <Skeleton className="h-3 w-12" />
+                  <Skeleton className="h-4 w-16" />
+                </div>
+                <div className="space-y-1">
+                  <Skeleton className="h-3 w-12" />
+                  <Skeleton className="h-4 w-16" />
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          transactions.map((transaction, index) => (
           <div key={index} className="p-4 border rounded-lg">
             <div className="flex justify-between items-start">
               <div>
@@ -128,7 +187,8 @@ export function TransactionsTable({ transactions }: TransactionsTableProps) {
               </div>
             </div>
           </div>
-        ))}
+          ))
+        )}
       </div>
     </>
   );
