@@ -1,0 +1,44 @@
+Email Verification & Onboarding Screen
+
+Product: StelloPay
+Role: UI/UX Designer
+Platform: Web
+Focus: Clean onboarding · Trust · Clarity
+
+Overview
+
+I designed a clean and modern email verification screen as part of StelloPay’s onboarding flow. The goal was to create a frictionless experience that reassures users while guiding them clearly through email confirmation.
+
+Design Goals
+
+Reduce onboarding friction
+
+Communicate trust and security
+
+Keep the interface minimal and friendly
+
+Clearly guide users through verification
+
+Design Approach
+
+The layout is split into two clear sections:
+
+Left panel: A visually engaging brand section that highlights community growth and creates emotional connection.
+
+Right panel: A focused verification flow with minimal distractions, ensuring users complete the task quickly.
+
+A soft purple color palette was used to maintain brand consistency while conveying reliability and calmness. Generous spacing, rounded elements, and subtle iconography enhance clarity and accessibility.
+
+Key UI Decisions
+
+OTP input design: Circular input fields improve readability and reduce input errors
+
+Microcopy: Friendly, reassuring language to reduce user anxiety
+
+Visual feedback: Notification icon reinforces successful email delivery
+
+Clear CTAs: “Verify Mail” stands out as the primary action
+
+Accessibility: High contrast text and simple layout improve usability
+
+FIGMA LINK https://www.figma.com/design/PA8JCM1ckLJtCUr14LPMpK/STELLOPAY-EMAIL-VERIFICATION?node-id=12-4714&t=AWoiv4xyKFHsZAfG-0
