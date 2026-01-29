@@ -4,6 +4,6 @@ https://www.figma.com/design/TuvTv502EmhaloPswIF3jc/StelloPay?node-id=8-91&t=kkz
 Dashboard + Transaction UI Design + Help/Support Page + Profile/Settings Page + Login Page
 FIGMA LINK (legacy): https://www.figma.com/design/wcDLcVPO7I0HZVb6zJr6Ep/Stellopay?node-id=0-1&t=6tyXbOo2ntkV8sxc-1
 
-Redesigned pages – Account Summary, Agreements, Transactions
+Redesigned pages – Account Summary (#150), Agreements (#151), Transactions (#152), Analytics View (#153), Pricing (#154), Settings/Preferences (#155)
 FIGMA LINK (redesign): https://www.figma.com/design/74oIRaFdQHOJ1A2hXMOnll/Stellopay?node-id=0-1&p=f&t=UdOvEZFmdxnp7D1E-0
 
