@@ -6,46 +6,14 @@ import Image from "next/image";
 import Icon from "@/public/Icon.png";
 import Piggy from "@/public/piggy-bank.png";
 import { copyToClipboardWithTimeout } from "@/utils/clipboardUtils";
-import { Skeleton } from "@/components/ui/skeleton";
 
-interface AccountSummaryPageProps {
-  isLoading?: boolean;
-}
-
-export default function AccountSummary({ isLoading = false }: AccountSummaryPageProps) {
+export default function AccountSummary() {
   const [copied, setCopied] = useState(false);
   const address = "0x8dE1243U45...67800UZ";
 
   const handleCopy = () => {
     copyToClipboardWithTimeout(address, setCopied);
   };
-
-  if (isLoading) {
-    return (
-      <div className="bg-[#140D13] p-4 rounded-xl border border-[#2D2D2D] shadow-lg text-white">
-        <div className="flex items-center mb-6 space-x-2">
-          <Skeleton className="w-8 h-8 rounded" />
-          <Skeleton className="h-6 w-40" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <div
-              key={index}
-              className="bg-[#121212] border border-[#2E2E2E] p-5 rounded-lg flex flex-col justify-between"
-            >
-              <div className="flex gap-2 items-center mb-2">
-                <Skeleton className="h-4 w-32" />
-                <Skeleton className="w-5 h-5 rounded" />
-              </div>
-              <Skeleton className="h-10 w-32 mb-2" />
-              <Skeleton className="h-3 w-24" />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-[#140D13] p-4 rounded-xl border border-[#2D2D2D] shadow-lg text-white ">
